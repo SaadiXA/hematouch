@@ -23,6 +23,7 @@ const Header = () => {
     { label: "منظومتنا الإبداعية", href: "#ecosystem" },
     { label: "منهجيتنا", href: "#methodology" },
     { label: "أعمالنا", href: "#portfolio" },
+    { label: "إدارة المعارض", href: "#event-management" },
     { label: "تواصل معنا", href: "#contact" },
   ];
 
@@ -81,11 +82,13 @@ const Header = () => {
           </nav>
 
           {/* Theme Toggle & CTA Button */}
-          <div className="hidden md:flex items-center gap-3">
-            <ThemeToggle />
+          <div className="flex items-center gap-3">
+            <div className="scale-125">
+              <ThemeToggle />
+            </div>
             <Button
               onClick={() => scrollToSection("#contact")}
-              className="bg-gradient-to-r from-primary to-primary-hover text-primary-foreground font-bold rounded-full px-6 shadow-[var(--shadow-glow)] hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
+              className="hidden md:inline-flex bg-gradient-to-r from-primary to-primary-hover text-primary-foreground font-bold rounded-full px-6 shadow-[var(--shadow-glow)] hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
             >
               ابدأ الآن
             </Button>
