@@ -7,7 +7,6 @@ import Expertise from "@/components/Expertise";
 import Ecosystem from "@/components/Ecosystem";
 import Methodology from "@/components/Methodology";
 import Portfolio from "@/components/Portfolio";
-import EventManagement from "@/components/EventManagement";
 import Testimonials from "@/components/Testimonials";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
@@ -26,7 +25,6 @@ const Index = () => {
         <Ecosystem />
         <Methodology />
         <Portfolio />
-        <EventManagement />
         <Testimonials />
         <Contact />
       </main>

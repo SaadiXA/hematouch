@@ -23,7 +23,6 @@ const Header = () => {
     { label: "منظومتنا الإبداعية", href: "#ecosystem" },
     { label: "منهجيتنا", href: "#methodology" },
     { label: "أعمالنا", href: "#portfolio" },
-    { label: "إدارة المعارض", href: "#event-management" },
     { label: "تواصل معنا", href: "#contact" },
   ];
 
