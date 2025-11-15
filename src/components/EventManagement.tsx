@@ -39,6 +39,26 @@ const EventManagement = () => {
   };
 
   useEffect(() => {
+    const container = scrollContainerRef.current;
+    if (!container) return;
+
+    const handleScroll = () => {
+      const scrollPosition = container.scrollLeft;
+      const itemWidth = container.clientWidth;
+      const newIndex = Math.round(scrollPosition / itemWidth);
+      if (newIndex !== currentIndex) {
+        setCurrentIndex(newIndex);
+      }
+    };
+
+    container.addEventListener('scroll', handleScroll, { passive: true });
+
+    return () => {
+      container.removeEventListener('scroll', handleScroll);
+    };
+  }, [currentIndex]);
+
+  useEffect(() => {
     if (isAutoPlaying) {
       autoPlayRef.current = setInterval(() => {
         nextSlide();
@@ -93,18 +113,13 @@ const EventManagement = () => {
                     scrollSnapAlign: 'center',
                   }}
                 >
-                  <div className="relative rounded-2xl md:rounded-3xl overflow-hidden shadow-2xl hover:shadow-[0_25px_80px_-15px_rgba(0,0,0,0.4)] transition-all duration-700 group bg-gradient-to-br from-card to-card/80 backdrop-blur-sm">
-                    {/* Premium Image Container */}
-                    <div className="relative overflow-hidden aspect-[16/9] md:aspect-[21/9]">
-                      <img 
-                        src={img} 
-                        alt={`عرض ${index + 1}`}
-                        className="w-full h-full object-cover transition-all duration-1000 group-hover:scale-110 group-hover:brightness-105"
-                        loading="lazy"
-                      />
-                      {/* Overlay Gradient */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                    </div>
+                  <div className="relative rounded-2xl md:rounded-3xl overflow-hidden shadow-2xl hover:shadow-[0_25px_80px_-15px_rgba(0,0,0,0.4)] transition-all duration-700 group">
+                    <img 
+                      src={img} 
+                      alt={`عرض ${index + 1}`}
+                      className="w-full h-auto object-contain transition-all duration-1000 group-hover:scale-105 group-hover:brightness-105 max-h-[60vh]"
+                      loading="lazy"
+                    />
                   </div>
                 </div>
               ))}
