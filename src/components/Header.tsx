@@ -83,9 +83,7 @@ const Header = () => {
 
           {/* Theme Toggle & CTA Button */}
           <div className="flex items-center gap-3">
-            <div className="scale-125">
-              <ThemeToggle />
-            </div>
+            <ThemeToggle />
             <Button
               onClick={() => scrollToSection("#contact")}
               className="hidden md:inline-flex bg-gradient-to-r from-primary to-primary-hover text-primary-foreground font-bold rounded-full px-6 shadow-[var(--shadow-glow)] hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
