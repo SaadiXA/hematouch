@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useRef } from "react";
 import successPartnersFull from "@/assets/success-partners-full.png";
 import exhibitionStand1 from "@/assets/exhibition-stand-1.png";
 import exhibitionStand2 from "@/assets/exhibition-stand-2.png";
@@ -10,7 +10,7 @@ const EventManagement = () => {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
 
   const slides = [
-    { img: successPartnersFullImg, alt: "Success Partners Banner" },
+    { img: successPartnersFull, alt: "Success Partners Banner" },
     { img: exhibitionStand1, alt: "Exhibition Stand 1" },
     { img: exhibitionStand2, alt: "Exhibition Stand 2" },
     { img: exhibitionStand3, alt: "Exhibition Stand 3" },
@@ -43,9 +43,7 @@ const EventManagement = () => {
           <div 
             ref={scrollContainerRef}
             className="overflow-x-auto scrollbar-hide scroll-smooth"
-            onTouchStart={handleUserInteraction}
-            onMouseDown={handleUserInteraction}
-            style={{ 
+            style={{
               scrollbarWidth: 'none',
               msOverflowStyle: 'none',
               WebkitOverflowScrolling: 'touch',
@@ -63,7 +61,7 @@ const EventManagement = () => {
                 >
                   <div className="relative rounded-2xl overflow-hidden shadow-[var(--shadow-elegant)] hover:shadow-[var(--shadow-premium)] transition-all duration-500 bg-card border-2 border-border/50 hover:border-primary/50">
                     <img 
-                      src={slide.src} 
+                      src={slide.img}
                       alt={slide.alt}
                       className="w-full h-auto object-contain max-h-[70vh] bg-background"
                       loading="lazy"
@@ -74,26 +72,6 @@ const EventManagement = () => {
                 </div>
               ))}
             </div>
-          </div>
-
-          {/* Navigation Dots */}
-          <div className="flex justify-center gap-2 md:gap-3 mt-8 md:mt-12">
-            {slides.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => {
-                  handleUserInteraction();
-                  setCurrentIndex(index);
-                  scrollToIndex(index);
-                }}
-                className={`rounded-full transition-all duration-300 ${
-                  currentIndex === index 
-                    ? 'w-10 md:w-12 h-2.5 md:h-3 bg-primary shadow-[0_0_20px_rgba(255,100,0,0.6)]' 
-                    : 'w-2.5 md:w-3 h-2.5 md:h-3 bg-primary/30 hover:bg-primary/50'
-                }`}
-                aria-label={`Go to slide ${index + 1}`}
-              />
-            ))}
           </div>
         </div>
       </div>
