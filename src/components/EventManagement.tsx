@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
 import successPartnersFull from "@/assets/success-partners-full.png";
 import exhibitionStand1 from "@/assets/exhibition-stand-1.png";
 import exhibitionStand2 from "@/assets/exhibition-stand-2.png";
@@ -107,29 +106,6 @@ const EventManagement = () => {
 
         {/* Premium Carousel */}
         <div className="relative max-w-7xl mx-auto">
-          {/* Navigation Arrows */}
-          <button
-            onClick={() => {
-              handleUserInteraction();
-              prevSlide();
-            }}
-            className="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 z-20 bg-background/90 backdrop-blur-xl border-2 border-primary/50 text-primary hover:bg-primary hover:text-primary-foreground rounded-full p-3 md:p-4 shadow-[var(--shadow-elegant)] hover:shadow-[var(--shadow-premium)] transition-all duration-300 hover:scale-110 group"
-            aria-label="Previous slide"
-          >
-            <ChevronRight className="w-6 h-6 md:w-8 md:h-8" />
-          </button>
-
-          <button
-            onClick={() => {
-              handleUserInteraction();
-              nextSlide();
-            }}
-            className="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 z-20 bg-background/90 backdrop-blur-xl border-2 border-primary/50 text-primary hover:bg-primary hover:text-primary-foreground rounded-full p-3 md:p-4 shadow-[var(--shadow-elegant)] hover:shadow-[var(--shadow-premium)] transition-all duration-300 hover:scale-110 group"
-            aria-label="Next slide"
-          >
-            <ChevronLeft className="w-6 h-6 md:w-8 md:h-8" />
-          </button>
-
           {/* Carousel Container */}
           <div 
             ref={scrollContainerRef}
