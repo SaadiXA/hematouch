@@ -49,19 +49,19 @@ const Footer = () => {
             <div className="space-y-3 mb-6">
               <div className="flex items-center gap-2 text-sm text-accent-foreground/80">
                 <Phone className="h-4 w-4 text-primary" />
-                <a href="tel:+966508050608" className="hover:text-primary transition-colors">
-                  +966 50 805 0608
+                <a href="tel:+966533982399" className="hover:text-primary transition-colors">
+                  +966-533982399
                 </a>
               </div>
               <div className="flex items-center gap-2 text-sm text-accent-foreground/80">
                 <Mail className="h-4 w-4 text-primary" />
-                <a href="mailto:info@hematouch.com" className="hover:text-primary transition-colors">
-                  info@hematouch.com
+                <a href="mailto:hema.touch2025@gmail.com" className="hover:text-primary transition-colors">
+                  hema.touch2025@gmail.com
                 </a>
               </div>
               <div className="flex items-center gap-2 text-sm text-accent-foreground/80">
                 <MapPin className="h-4 w-4 text-primary" />
-                <span>المملكة العربية السعودية</span>
+                <span>نجران، المملكة العربية السعودية</span>
               </div>
             </div>
             

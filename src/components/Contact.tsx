@@ -46,19 +46,19 @@ const Contact = () => {
     {
       icon: <Mail className="w-6 h-6" />,
       title: "البريد الإلكتروني",
-      content: "info@hematouch.com",
-      link: "mailto:info@hematouch.com"
+      content: "hema.touch2025@gmail.com",
+      link: "mailto:hema.touch2025@gmail.com"
     },
     {
       icon: <Phone className="w-6 h-6" />,
       title: "الهاتف",
-      content: "+966 50 123 4567",
-      link: "tel:+966501234567"
+      content: "+966-533982399",
+      link: "tel:+966533982399"
     },
     {
       icon: <MapPin className="w-6 h-6" />,
       title: "الموقع",
-      content: "الرياض، المملكة العربية السعودية",
+      content: "نجران، الطابق 3، سمارت سنتر، 4799 طريق الملك فيصل بن عبد العزيز، 8191 حي الفيصلية، 66271",
       link: "#"
     }
   ];
@@ -192,11 +192,11 @@ const Contact = () => {
                 <h4 className="text-xl font-bold mb-4 text-foreground">ساعات العمل</h4>
                 <div className="space-y-3 text-muted-foreground">
                   <div className="flex justify-between">
-                    <span className="font-medium">الأحد - الخميس:</span>
-                    <span>9:00 ص - 6:00 م</span>
+                    <span className="font-medium">السبت - الخميس:</span>
+                    <span>08:00 ص - 10:00 م</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="font-medium">الجمعة - السبت:</span>
+                    <span className="font-medium">الجمعة:</span>
                     <span>مغلق</span>
                   </div>
                 </div>

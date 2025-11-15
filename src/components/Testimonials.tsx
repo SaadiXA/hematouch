@@ -98,8 +98,8 @@ const Testimonials = () => {
             <div className="text-sm text-muted-foreground font-medium">رضا العملاء</div>
           </div>
           <div className="text-center">
-            <div className="text-4xl md:text-5xl font-bold text-primary mb-2">+500</div>
-            <div className="text-sm text-muted-foreground font-medium">مشروع ناجح</div>
+            <div className="text-4xl md:text-5xl font-bold text-primary mb-2">+100</div>
+            <div className="text-sm text-muted-foreground font-medium">قصة نجاح نرويها</div>
           </div>
           <div className="text-center">
             <div className="text-4xl md:text-5xl font-bold text-primary mb-2">+200</div>
