@@ -45,10 +45,10 @@ const Header = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-black/95 backdrop-blur-xl shadow-2xl ${
         isScrolled
-          ? "bg-background/95 backdrop-blur-xl shadow-2xl py-2"
-          : "bg-background/80 backdrop-blur-md py-3 md:py-4"
+          ? "py-2"
+          : "py-3 md:py-4"
       }`}
     >
       <div className="container mx-auto px-3 md:px-4">
@@ -72,7 +72,7 @@ const Header = () => {
                   e.preventDefault();
                   scrollToSection(item.href);
                 }}
-                className="text-foreground/80 hover:text-primary font-medium text-sm relative group cursor-pointer transition-colors"
+                className="text-white/80 hover:text-primary font-medium text-sm relative group cursor-pointer transition-colors"
               >
                 {item.label}
                 <span className="absolute -bottom-1 right-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
@@ -93,7 +93,7 @@ const Header = () => {
 
           {/* Mobile Menu Toggle */}
           <button
-            className="lg:hidden text-foreground p-2"
+            className="lg:hidden text-white p-2"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label="Toggle menu"
           >
