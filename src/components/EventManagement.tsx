@@ -8,82 +8,15 @@ import exhibitionStand5 from "@/assets/exhibition-stand-5.png";
 
 const EventManagement = () => {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const isAutoPlayingRef = useRef(true);
-  const autoPlayRef = useRef<NodeJS.Timeout | null>(null);
 
   const slides = [
-    { src: successPartnersFull, alt: "Success Partners - شركاء النجاح" },
-    { src: exhibitionStand1, alt: "Exhibition Stand 1 - COMMANDOS EVENT" },
-    { src: exhibitionStand2, alt: "Exhibition Stand 2 - HIKVISION & MY WINDOW" },
-    { src: exhibitionStand3, alt: "Exhibition Stand 3 - اتصالات" },
-    { src: exhibitionStand4, alt: "Exhibition Stand 4 - ASYAD & OOREDOO" },
-    { src: exhibitionStand5, alt: "Exhibition Stand 5 - Conference Booth" },
+    { img: successPartnersFullImg, alt: "Success Partners Banner" },
+    { img: exhibitionStand1, alt: "Exhibition Stand 1" },
+    { img: exhibitionStand2, alt: "Exhibition Stand 2" },
+    { img: exhibitionStand3, alt: "Exhibition Stand 3" },
+    { img: exhibitionStand4, alt: "Exhibition Stand 4" },
+    { img: exhibitionStand5, alt: "Exhibition Stand 5" },
   ];
-
-  const scrollToIndex = (index: number) => {
-    const container = scrollContainerRef.current;
-    if (!container) return;
-
-    const itemWidth = container.clientWidth;
-    container.scrollTo({
-      left: itemWidth * index,
-      behavior: 'smooth'
-    });
-  };
-
-  useEffect(() => {
-    const container = scrollContainerRef.current;
-    if (!container) return;
-
-    const handleScroll = () => {
-      const scrollPosition = container.scrollLeft;
-      const itemWidth = container.clientWidth;
-      const newIndex = Math.round(scrollPosition / itemWidth);
-      setCurrentIndex(newIndex);
-    };
-
-    container.addEventListener('scroll', handleScroll, { passive: true });
-
-    return () => {
-      container.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
-
-  useEffect(() => {
-    if (isAutoPlayingRef.current) {
-      autoPlayRef.current = setInterval(() => {
-        setCurrentIndex(prev => {
-          const nextIndex = (prev + 1) % slides.length;
-          scrollToIndex(nextIndex);
-          return nextIndex;
-        });
-      }, 5000);
-    }
-
-    return () => {
-      if (autoPlayRef.current) {
-        clearInterval(autoPlayRef.current);
-      }
-    };
-  }, [slides.length]);
-
-  const handleUserInteraction = () => {
-    isAutoPlayingRef.current = false;
-    if (autoPlayRef.current) {
-      clearInterval(autoPlayRef.current);
-    }
-    setTimeout(() => {
-      isAutoPlayingRef.current = true;
-      autoPlayRef.current = setInterval(() => {
-        setCurrentIndex(prev => {
-          const nextIndex = (prev + 1) % slides.length;
-          scrollToIndex(nextIndex);
-          return nextIndex;
-        });
-      }, 5000);
-    }, 8000);
-  };
 
   return (
     <section id="event-management" className="py-16 md:py-24 lg:py-32 bg-gradient-to-b from-background via-background/95 to-background relative overflow-hidden">
