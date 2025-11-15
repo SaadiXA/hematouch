@@ -43,33 +43,44 @@ const Services = () => {
   ];
 
   return (
-    <section id="services" className="py-24 bg-gradient-to-b from-background to-secondary">
-      <div className="container mx-auto px-4">
+    <section id="services" className="py-24 md:py-32 lg:py-40 bg-gradient-to-b from-background via-secondary/30 to-background relative overflow-hidden">
+      {/* Decorative Background Elements */}
+      <div className="absolute inset-0 opacity-5">
+        <div className="absolute top-20 right-20 w-72 h-72 bg-primary rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 left-20 w-96 h-96 bg-primary-hover rounded-full blur-3xl"></div>
+      </div>
+
+      <div className="container mx-auto px-4 relative z-10">
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">
-            خدماتنا <span className="text-primary">المتميزة</span>
+        <div className="text-center mb-20 animate-fade-up">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 text-foreground">
+            خدماتنا <span className="gradient-text">المتميزة</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
             نقدم مجموعة شاملة من الخدمات الإبداعية التي تساعدك على التميز والنمو في عالم الأعمال الرقمي
           </p>
         </div>
 
         {/* Services Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
           {services.map((service, index) => (
             <Link key={index} to={service.link}>
-              <Card className="group border-2 hover:border-primary transition-all duration-300 hover-lift hover:shadow-[var(--shadow-elegant)] bg-card overflow-hidden h-full">
-                <CardContent className="p-8">
-                  <div className="mb-6 inline-flex p-4 rounded-2xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300">
-                    {service.icon}
+              <Card className="group border-2 border-border/50 hover:border-primary/50 transition-all duration-500 hover-lift hover:shadow-[var(--shadow-premium)] bg-card/80 backdrop-blur-sm overflow-hidden h-full animate-scale-in" style={{ animationDelay: `${index * 0.1}s` }}>
+                <CardContent className="p-8 lg:p-10 relative">
+                  {/* Hover Gradient Effect */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  
+                  <div className="relative z-10">
+                    <div className="mb-6 inline-flex p-5 rounded-2xl bg-primary/10 text-primary group-hover:bg-gradient-to-br group-hover:from-primary group-hover:to-primary-hover group-hover:text-primary-foreground transition-all duration-500 group-hover:scale-110 group-hover:rotate-3">
+                      {service.icon}
+                    </div>
+                    <h3 className="text-2xl lg:text-3xl font-bold mb-4 text-foreground group-hover:text-primary transition-colors duration-300">
+                      {service.title}
+                    </h3>
+                    <p className="text-muted-foreground leading-relaxed text-base lg:text-lg">
+                      {service.description}
+                    </p>
                   </div>
-                  <h3 className="text-2xl font-bold mb-4 text-foreground group-hover:text-primary transition-colors">
-                    {service.title}
-                  </h3>
-                  <p className="text-muted-foreground leading-relaxed">
-                    {service.description}
-                  </p>
                 </CardContent>
               </Card>
             </Link>

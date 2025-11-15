@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import eventBanner from "@/assets/event-banner.png";
 import successPartners from "@/assets/success-partners.png";
 import exhibition1 from "@/assets/exhibition-1.png";
@@ -9,74 +10,73 @@ import exhibition5 from "@/assets/exhibition-5.png";
 
 const EventManagement = () => {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
-  const [isUserScrolling, setIsUserScrolling] = useState(false);
-  const scrollTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+  const autoPlayRef = useRef<NodeJS.Timeout | null>(null);
+
+  const images = [eventBanner, successPartners, exhibition1, exhibition2, exhibition3, exhibition4, exhibition5];
+
+  const scrollToIndex = (index: number) => {
+    const container = scrollContainerRef.current;
+    if (!container) return;
+
+    const itemWidth = container.clientWidth;
+    container.scrollTo({
+      left: itemWidth * index,
+      behavior: 'smooth'
+    });
+    setCurrentIndex(index);
+  };
+
+  const nextSlide = () => {
+    const nextIndex = (currentIndex + 1) % images.length;
+    scrollToIndex(nextIndex);
+  };
+
+  const prevSlide = () => {
+    const prevIndex = (currentIndex - 1 + images.length) % images.length;
+    scrollToIndex(prevIndex);
+  };
 
   useEffect(() => {
-    const scrollContainer = scrollContainerRef.current;
-    if (!scrollContainer) return;
-
-    let animationFrameId: number;
-    let scrollAmount = 0;
-
-    const autoScroll = () => {
-      if (!isUserScrolling && scrollContainer) {
-        scrollAmount += 0.5;
-        
-        if (scrollAmount >= scrollContainer.scrollWidth - scrollContainer.clientWidth) {
-          scrollAmount = 0;
-        }
-        
-        scrollContainer.scrollLeft = scrollAmount;
-      }
-      animationFrameId = requestAnimationFrame(autoScroll);
-    };
-
-    animationFrameId = requestAnimationFrame(autoScroll);
-
-    const handleScroll = () => {
-      setIsUserScrolling(true);
-      scrollAmount = scrollContainer.scrollLeft;
-      
-      if (scrollTimeoutRef.current) {
-        clearTimeout(scrollTimeoutRef.current);
-      }
-      
-      scrollTimeoutRef.current = setTimeout(() => {
-        setIsUserScrolling(false);
-      }, 2000);
-    };
-
-    scrollContainer.addEventListener('scroll', handleScroll, { passive: true });
-    scrollContainer.addEventListener('touchstart', () => setIsUserScrolling(true), { passive: true });
-    scrollContainer.addEventListener('mousedown', () => setIsUserScrolling(true));
+    if (isAutoPlaying) {
+      autoPlayRef.current = setInterval(() => {
+        nextSlide();
+      }, 4000);
+    }
 
     return () => {
-      cancelAnimationFrame(animationFrameId);
-      scrollContainer.removeEventListener('scroll', handleScroll);
-      scrollContainer.removeEventListener('touchstart', () => setIsUserScrolling(true));
-      scrollContainer.removeEventListener('mousedown', () => setIsUserScrolling(true));
-      if (scrollTimeoutRef.current) {
-        clearTimeout(scrollTimeoutRef.current);
+      if (autoPlayRef.current) {
+        clearInterval(autoPlayRef.current);
       }
     };
-  }, [isUserScrolling]);
+  }, [isAutoPlaying, currentIndex]);
+
+  const handleUserInteraction = () => {
+    setIsAutoPlaying(false);
+    if (autoPlayRef.current) {
+      clearInterval(autoPlayRef.current);
+    }
+    setTimeout(() => setIsAutoPlaying(true), 5000);
+  };
 
   return (
-    <section id="event-management" className="py-12 md:py-24 bg-background overflow-hidden">
-      <div className="w-full">
+    <section id="event-management" className="py-16 md:py-24 lg:py-32 bg-gradient-to-b from-background via-background/95 to-background">
+      <div className="w-full max-w-[2000px] mx-auto">
         {/* Section Header */}
-        <div className="text-center mb-8 md:mb-12 px-4">
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground">
-            نماذج <span className="text-primary">أعمالنا وشركاء النجاح</span>
+        <div className="text-center mb-12 md:mb-16 px-4">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-extrabold text-foreground animate-fade-in">
+            نماذج <span className="text-primary bg-gradient-to-r from-primary to-primary-hover bg-clip-text text-transparent">أعمالنا وشركاء النجاح</span>
           </h2>
         </div>
 
-        {/* Horizontal Scrolling Exhibition Gallery */}
-        <div className="relative w-full">
+        {/* Premium Carousel */}
+        <div className="relative w-full px-4 md:px-8 lg:px-12">
           <div 
             ref={scrollContainerRef}
-            className="overflow-x-auto scrollbar-hide cursor-grab active:cursor-grabbing"
+            className="overflow-x-auto scrollbar-hide scroll-smooth"
+            onTouchStart={handleUserInteraction}
+            onMouseDown={handleUserInteraction}
             style={{ 
               scrollbarWidth: 'none',
               msOverflowStyle: 'none',
@@ -84,41 +84,66 @@ const EventManagement = () => {
               scrollSnapType: 'x mandatory',
             }}
           >
-            <div className="flex gap-4 md:gap-6 px-4 md:px-8 py-4" style={{ minWidth: 'min-content' }}>
-              {[eventBanner, successPartners, exhibition1, exhibition2, exhibition3, exhibition4, exhibition5].map((img, index) => (
+            <div className="flex gap-0">
+              {images.map((img, index) => (
                 <div 
                   key={index}
-                  className="flex-shrink-0 w-[90vw] sm:w-[80vw] md:w-[70vw] lg:w-[60vw] xl:w-[50vw] rounded-xl md:rounded-2xl overflow-hidden shadow-[var(--shadow-elegant)] hover:shadow-[var(--shadow-intense)] transition-all duration-500 hover:scale-[1.02] group"
+                  className="flex-shrink-0 w-full px-2 md:px-4"
                   style={{
                     scrollSnapAlign: 'center',
                   }}
                 >
-                  <img 
-                    src={img} 
-                    alt={`معرض ${index + 1}`}
-                    className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105 select-none"
-                    loading="lazy"
-                    draggable="false"
-                  />
+                  <div className="relative rounded-2xl md:rounded-3xl overflow-hidden shadow-2xl hover:shadow-[0_25px_80px_-15px_rgba(0,0,0,0.4)] transition-all duration-700 group bg-gradient-to-br from-card to-card/80 backdrop-blur-sm">
+                    {/* Premium Image Container */}
+                    <div className="relative overflow-hidden aspect-[16/9] md:aspect-[21/9]">
+                      <img 
+                        src={img} 
+                        alt={`عرض ${index + 1}`}
+                        className="w-full h-full object-cover transition-all duration-1000 group-hover:scale-110 group-hover:brightness-105"
+                        loading="lazy"
+                      />
+                      {/* Overlay Gradient */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    </div>
+                  </div>
                 </div>
               ))}
             </div>
           </div>
-          
-          {/* Mobile Scroll Indicator */}
-          <div className="flex justify-center gap-2 mt-6 md:hidden">
-            {[...Array(7)].map((_, i) => (
-              <div key={i} className="w-2 h-2 rounded-full bg-muted/50"></div>
+
+          {/* Navigation Arrows - Desktop */}
+          <button
+            onClick={() => { prevSlide(); handleUserInteraction(); }}
+            className="hidden md:flex absolute left-4 lg:left-8 top-1/2 -translate-y-1/2 w-14 h-14 lg:w-16 lg:h-16 items-center justify-center rounded-full bg-primary/90 hover:bg-primary text-primary-foreground shadow-[var(--shadow-glow)] hover:shadow-[var(--shadow-intense)] transition-all duration-300 hover:scale-110 z-10 backdrop-blur-md"
+            aria-label="السابق"
+          >
+            <ChevronRight className="w-7 h-7 lg:w-8 lg:h-8" />
+          </button>
+          <button
+            onClick={() => { nextSlide(); handleUserInteraction(); }}
+            className="hidden md:flex absolute right-4 lg:right-8 top-1/2 -translate-y-1/2 w-14 h-14 lg:w-16 lg:h-16 items-center justify-center rounded-full bg-primary/90 hover:bg-primary text-primary-foreground shadow-[var(--shadow-glow)] hover:shadow-[var(--shadow-intense)] transition-all duration-300 hover:scale-110 z-10 backdrop-blur-md"
+            aria-label="التالي"
+          >
+            <ChevronLeft className="w-7 h-7 lg:w-8 lg:h-8" />
+          </button>
+
+          {/* Dots Navigation */}
+          <div className="flex justify-center gap-3 mt-8 md:mt-12">
+            {images.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => { scrollToIndex(index); handleUserInteraction(); }}
+                className={`transition-all duration-500 rounded-full ${
+                  index === currentIndex 
+                    ? 'w-12 md:w-16 h-3 md:h-4 bg-primary shadow-[var(--shadow-glow)]' 
+                    : 'w-3 md:w-4 h-3 md:h-4 bg-muted-foreground/30 hover:bg-muted-foreground/50'
+                }`}
+                aria-label={`الانتقال إلى الشريحة ${index + 1}`}
+              />
             ))}
           </div>
         </div>
       </div>
-
-      <style>{`
-        .scrollbar-hide::-webkit-scrollbar {
-          display: none;
-        }
-      `}</style>
     </section>
   );
 };
