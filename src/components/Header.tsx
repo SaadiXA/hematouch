@@ -20,7 +20,6 @@ const Header = () => {
     { label: "الرئيسية", href: "#hero" },
     { label: "استراتيجيتنا", href: "#strategy" },
     { label: "من نحن", href: "#about" },
-    { label: "التحديات", href: "#problems" },
     { label: "خدماتنا", href: "#services" },
     { label: "منهجيتنا", href: "#methodology" },
     { label: "أعمالنا", href: "#portfolio" },
