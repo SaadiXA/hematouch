@@ -3,9 +3,9 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
 import socialIcon from "@/assets/services/social-media-icon.png";
 import socialBanner from "@/assets/services/social-media-banner.jpg";
+import { Sparkles, Target, Users, TrendingUp } from "lucide-react";
 
 const SocialMediaService = () => {
   useEffect(() => {
