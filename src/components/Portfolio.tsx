@@ -1,4 +1,4 @@
-import { Card, CardContent } from "@/components/ui/card";
+import { Card } from "@/components/ui/card";
 import { ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import missrouhImg from "@/assets/portfolio/missrouh.jpg";
@@ -61,43 +61,26 @@ const Portfolio = () => {
           {stores.map((store, index) => (
             <Card
               key={index}
-              className="group overflow-hidden hover-lift hover:shadow-[var(--shadow-elegant)] border-2 hover:border-primary transition-all duration-300 bg-card/50 backdrop-blur-sm"
+              className="group overflow-hidden border-2 hover:border-primary transition-all duration-300 hover-lift hover:shadow-[var(--shadow-elegant)] bg-card"
             >
-              {/* Store Image */}
-              <div className="h-48 md:h-64 relative overflow-hidden">
+              {/* Store Image - Full Size */}
+              <div className="relative overflow-hidden aspect-[4/3]">
                 <img 
                   src={store.image} 
-                  alt={store.name}
-                  className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                  alt={store.nameEn}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-                <div className="absolute bottom-4 right-4 md:bottom-6 md:right-6">
-                  <h3 className="text-2xl md:text-3xl font-bold text-white drop-shadow-lg">
-                    {store.name}
-                  </h3>
-                </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  className="absolute top-4 left-4 rounded-full bg-background/90 hover:bg-primary hover:text-primary-foreground border-primary/50 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  onClick={() => window.open(store.url, "_blank")}
+                >
+                  <ExternalLink className="h-4 w-4 ml-2" />
+                  زيارة المتجر
+                </Button>
               </div>
-
-              <CardContent className="p-4 md:p-6">
-                <div className="flex items-center justify-between mb-4 flex-wrap gap-2">
-                  <p className="text-base md:text-lg font-semibold text-muted-foreground">
-                    {store.nameEn}
-                  </p>
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    className="rounded-full hover:bg-primary hover:text-primary-foreground border-primary/50"
-                    onClick={() => window.open(store.url, "_blank")}
-                  >
-                    <ExternalLink className="h-4 w-4 ml-2" />
-                    زيارة
-                  </Button>
-                </div>
-                
-                <p className="text-muted-foreground leading-relaxed text-sm md:text-base">
-                  {store.description}
-                </p>
-              </CardContent>
             </Card>
           ))}
         </div>

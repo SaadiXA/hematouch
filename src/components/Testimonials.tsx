@@ -73,19 +73,39 @@ const Testimonials = () => {
           ))}
         </div>
 
-        {/* Stats Section */}
-        <div className="mt-20 grid grid-cols-2 md:grid-cols-3 gap-8 max-w-3xl mx-auto">
-          <div className="text-center">
-            <div className="text-4xl md:text-5xl font-bold text-primary mb-2">98%</div>
-            <div className="text-sm text-muted-foreground font-medium">رضا العملاء</div>
+        {/* Stats Section with Animation */}
+        <div className="mt-20 grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+          <div className="relative p-8 rounded-3xl border-4 border-primary bg-card/50 backdrop-blur-sm hover:bg-card transition-all duration-300 animate-fade-in hover-lift">
+            <div className="text-center">
+              <div className="text-5xl md:text-6xl font-bold text-primary mb-4 animate-pulse">
+                80%
+              </div>
+              <div className="text-base md:text-lg text-foreground font-medium">
+                نمو في معدل التحويل
+              </div>
+            </div>
           </div>
-          <div className="text-center">
-            <div className="text-4xl md:text-5xl font-bold text-primary mb-2">+100</div>
-            <div className="text-sm text-muted-foreground font-medium">قصة نجاح نرويها</div>
+          
+          <div className="relative p-8 rounded-3xl border-4 border-primary bg-card/50 backdrop-blur-sm hover:bg-card transition-all duration-300 animate-fade-in hover-lift" style={{ animationDelay: '0.1s' }}>
+            <div className="text-center">
+              <div className="text-5xl md:text-6xl font-bold text-primary mb-4 animate-pulse" style={{ animationDelay: '0.2s' }}>
+                +200
+              </div>
+              <div className="text-base md:text-lg text-foreground font-medium">
+                قصة نجاح نرويها
+              </div>
+            </div>
           </div>
-          <div className="text-center">
-            <div className="text-4xl md:text-5xl font-bold text-primary mb-2">+200</div>
-            <div className="text-sm text-muted-foreground font-medium">عميل راضٍ</div>
+          
+          <div className="relative p-8 rounded-3xl border-4 border-primary bg-card/50 backdrop-blur-sm hover:bg-card transition-all duration-300 animate-fade-in hover-lift" style={{ animationDelay: '0.2s' }}>
+            <div className="text-center">
+              <div className="text-5xl md:text-6xl font-bold text-primary mb-4 animate-pulse" style={{ animationDelay: '0.4s' }}>
+                98%
+              </div>
+              <div className="text-base md:text-lg text-foreground font-medium">
+                رضا شركائنا الأعزاء
+              </div>
+            </div>
           </div>
         </div>
       </div>
