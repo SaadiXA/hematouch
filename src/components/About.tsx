@@ -1,4 +1,3 @@
-import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Target, TrendingUp, Users } from "lucide-react";
 
@@ -24,20 +23,14 @@ const About = () => {
               </p>
               
               <div className="flex justify-center">
-                <Button
-                  onClick={() => {
-                    const element = document.querySelector("#contact");
-                    if (element) {
-                      const offset = 80;
-                      const elementPosition = element.getBoundingClientRect().top;
-                      const offsetPosition = elementPosition + window.pageYOffset - offset;
-                      window.scrollTo({ top: offsetPosition, behavior: "smooth" });
-                    }
-                  }}
-                  className="bg-gradient-to-r from-primary to-primary-hover text-primary-foreground font-bold rounded-full px-10 py-6 text-lg shadow-[var(--shadow-glow)] hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
+                <a
+                  href="https://wa.me/966533982399?text=مرحباً، أريد الاستفسار عن خدماتكم"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center bg-gradient-to-r from-primary to-primary-hover text-primary-foreground font-bold rounded-full px-10 py-6 text-lg shadow-[var(--shadow-glow)] hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
                 >
                   تواصل معنا الآن
-                </Button>
+                </a>
               </div>
             </CardContent>
           </Card>

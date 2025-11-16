@@ -18,13 +18,14 @@ const Header = () => {
 
   const navItems = [
     { label: "الرئيسية", href: "#hero" },
-    { label: "استراتيجيات تسويق ثاقبة", href: "#strategy" },
+    { label: "استراتيجيتنا", href: "#strategy" },
     { label: "من نحن", href: "#about" },
-    { label: "خبراتنا", href: "#expertise" },
-    { label: "منظومتنا الإبداعية", href: "#ecosystem" },
+    { label: "التحديات", href: "#problems" },
+    { label: "خدماتنا", href: "#services" },
     { label: "منهجيتنا", href: "#methodology" },
     { label: "أعمالنا", href: "#portfolio" },
     { label: "إدارة المعارض", href: "#event-management" },
+    { label: "عملاؤنا", href: "#testimonials" },
     { label: "تواصل معنا", href: "#contact" },
   ];
 
@@ -89,12 +90,14 @@ const Header = () => {
           {/* Theme Toggle & CTA Button */}
           <div className="flex items-center gap-2 md:gap-3">
             <ThemeToggle />
-            <Button
-              onClick={() => scrollToSection("#contact")}
+            <a
+              href="https://wa.me/966533982399?text=مرحباً، أريد الاستفسار عن خدماتكم"
+              target="_blank"
+              rel="noopener noreferrer"
               className="hidden sm:inline-flex bg-primary hover:bg-primary-hover text-primary-foreground font-bold rounded-full px-4 md:px-6 py-2 text-sm md:text-base shadow-[var(--shadow-glow)] hover:shadow-lg hover:-translate-y-1 transition-all duration-300 whitespace-nowrap"
             >
               ابدأ الآن
-            </Button>
+            </a>
           </div>
 
           {/* Mobile Menu Toggle */}
@@ -123,12 +126,14 @@ const Header = () => {
                 {item.label}
               </a>
             ))}
-            <Button
-              onClick={() => scrollToSection("#contact")}
-              className="bg-primary hover:bg-primary-hover text-primary-foreground font-bold rounded-full mt-2 shadow-[var(--shadow-glow)]"
+            <a
+              href="https://wa.me/966533982399?text=مرحباً، أريد الاستفسار عن خدماتكم"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-primary hover:bg-primary-hover text-primary-foreground font-bold rounded-full mt-2 shadow-[var(--shadow-glow)] block text-center py-2"
             >
               ابدأ الآن
-            </Button>
+            </a>
           </nav>
         )}
       </div>
