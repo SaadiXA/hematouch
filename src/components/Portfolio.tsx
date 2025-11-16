@@ -70,11 +70,25 @@ const Portfolio = () => {
                   alt={store.nameEn}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+              </div>
+
+              {/* Store Content */}
+              <div className="p-6 space-y-4">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <h3 className="text-2xl font-bold text-foreground mb-1">{store.name}</h3>
+                    <p className="text-sm text-muted-foreground">{store.nameEn}</p>
+                  </div>
+                </div>
+                
+                <p className="text-muted-foreground leading-relaxed">
+                  {store.description}
+                </p>
+
                 <Button
                   variant="outline"
-                  size="sm"
-                  className="absolute top-4 left-4 rounded-full bg-background/90 hover:bg-primary hover:text-primary-foreground border-primary/50 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  className="w-full group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300"
                   onClick={() => window.open(store.url, "_blank")}
                 >
                   <ExternalLink className="h-4 w-4 ml-2" />
