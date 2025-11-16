@@ -1,40 +1,66 @@
-import { Facebook, Twitter, Instagram, Linkedin, Youtube, Phone, Mail, MapPin } from "lucide-react";
+import { Facebook, Instagram, Youtube, Phone, Mail, MapPin } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   const socialLinks = [
-    { icon: <Facebook className="w-5 h-5" />, href: "https://facebook.com/hematouch", label: "Facebook" },
-    { icon: <Twitter className="w-5 h-5" />, href: "https://twitter.com/hematouch", label: "Twitter" },
-    { icon: <Instagram className="w-5 h-5" />, href: "https://instagram.com/hematouch", label: "Instagram" },
-    { icon: <Linkedin className="w-5 h-5" />, href: "https://linkedin.com/company/hematouch", label: "LinkedIn" },
-    { icon: <Youtube className="w-5 h-5" />, href: "https://youtube.com/@hematouch", label: "YouTube" }
+    { 
+      icon: <Instagram className="w-5 h-5" />, 
+      href: "https://www.instagram.com/hema_touch/", 
+      label: "Instagram" 
+    },
+    { 
+      icon: (
+        <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64 2.93 2.93 0 01.88.13V9.4a6.84 6.84 0 00-1-.05A6.33 6.33 0 005 20.1a6.34 6.34 0 0010.86-4.43v-7a8.16 8.16 0 004.77 1.52v-3.4a4.85 4.85 0 01-1-.1z"/>
+        </svg>
+      ), 
+      href: "https://www.tiktok.com/@hema_touch", 
+      label: "TikTok" 
+    },
+    { 
+      icon: (
+        <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12.206 2.024c-.948 0-1.848.184-2.674.548a6.634 6.634 0 0 0-2.186 1.492 6.634 6.634 0 0 0-1.492 2.186 6.634 6.634 0 0 0-.548 2.674c0 .948.184 1.848.548 2.674.364.826.854 1.55 1.492 2.186a6.634 6.634 0 0 0 2.186 1.492c.826.364 1.726.548 2.674.548.948 0 1.848-.184 2.674-.548a6.634 6.634 0 0 0 2.186-1.492 6.634 6.634 0 0 0 1.492-2.186c.364-.826.548-1.726.548-2.674 0-.948-.184-1.848-.548-2.674a6.634 6.634 0 0 0-1.492-2.186 6.634 6.634 0 0 0-2.186-1.492 6.634 6.634 0 0 0-2.674-.548zm0 10.42a2.496 2.496 0 1 1 0-4.992 2.496 2.496 0 0 1 0 4.992zM19.332 7.342c.413-.826.648-1.742.648-2.718 0-.826-.184-1.616-.548-2.364a5.82 5.82 0 0 0-1.492-1.95A5.82 5.82 0 0 0 15.99.31C15.24-.054 14.45-.238 13.624-.238h-2.836c-.826 0-1.616.184-2.364.548a5.82 5.82 0 0 0-1.95 1.492 5.82 5.82 0 0 0-1.492 1.95c-.364.748-.548 1.538-.548 2.364 0 .976.235 1.892.648 2.718-.413.826-.648 1.742-.648 2.718 0 .826.184 1.616.548 2.364a5.82 5.82 0 0 0 1.492 1.95 5.82 5.82 0 0 0 1.95 1.492c.748.364 1.538.548 2.364.548h2.836c.826 0 1.616-.184 2.364-.548a5.82 5.82 0 0 0 1.95-1.492 5.82 5.82 0 0 0 1.492-1.95c.364-.748.548-1.538.548-2.364 0-.976-.235-1.892-.648-2.718z"/>
+        </svg>
+      ), 
+      href: "https://www.snapchat.com/@hema_touch", 
+      label: "Snapchat" 
+    },
+    { 
+      icon: <Facebook className="w-5 h-5" />, 
+      href: "https://m.facebook.com/hema.touch/", 
+      label: "Facebook" 
+    },
+    { 
+      icon: <Youtube className="w-5 h-5" />, 
+      href: "https://youtube.com/@hema_touch?si=1HgxFl5JBE6-81Fw", 
+      label: "YouTube" 
+    }
   ];
 
   const footerLinks = {
-    company: [
-      { label: "من نحن", href: "#" },
-      { label: "خدماتنا", href: "#services" },
-      { label: "أعمالنا", href: "#portfolio" },
-      { label: "تواصل معنا", href: "#contact" }
-    ],
     services: [
-      { label: "التسويق الرقمي", href: "#services" },
-      { label: "التصميم الإبداعي", href: "#services" },
-      { label: "إنتاج المحتوى", href: "#services" },
-      { label: "تطوير المواقع", href: "#services" }
+      { label: "تصميم العلامة التجارية", href: "/services/brand-design" },
+      { label: "إدارة وسائل التواصل الاجتماعي", href: "/services/social-media" },
+      { label: "إنشاء المتاجر الإلكترونية", href: "/services/ecommerce" },
+      { label: "إدارة الحملات الإعلانية", href: "/services/advertising" },
+      { label: "التحليلات والتقارير", href: "/services/analytics" },
+      { label: "إنتاج فيديو الموشن جرافيك", href: "/services/motion-graphics" },
+      { label: "حملات التسويق عبر المؤثرين", href: "/services/influencer" },
+      { label: "إدارة الفعاليات والسمعة", href: "/services/events" }
     ],
     legal: [
-      { label: "سياسة الخصوصية", href: "#" },
-      { label: "شروط الاستخدام", href: "#" },
-      { label: "سياسة الاسترجاع", href: "#" }
+      { label: "سياسة الخصوصية", href: "/privacy" },
+      { label: "الشروط والأحكام", href: "/terms" }
     ]
   };
 
   return (
     <footer className="bg-accent text-accent-foreground">
       <div className="container mx-auto px-4 py-16">
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12 mb-12">
           {/* Brand Section */}
           <div>
             <div className="text-3xl font-bold mb-4">
@@ -66,7 +92,7 @@ const Footer = () => {
             </div>
             
             {/* Social Links */}
-            <div className="flex gap-3">
+            <div className="flex gap-3 flex-wrap">
               {socialLinks.map((social, index) => (
                 <a
                   key={index}
@@ -82,35 +108,18 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Company Links */}
-          <div>
-            <h3 className="text-xl font-bold mb-6 text-accent-foreground">الشركة</h3>
-            <ul className="space-y-3">
-              {footerLinks.company.map((link, index) => (
-                <li key={index}>
-                  <a
-                    href={link.href}
-                    className="text-accent-foreground/80 hover:text-primary transition-colors duration-300 inline-block"
-                  >
-                    {link.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
           {/* Services Links */}
           <div>
-            <h3 className="text-xl font-bold mb-6 text-accent-foreground">الخدمات</h3>
+            <h3 className="text-xl font-bold mb-6 text-accent-foreground">خدماتنا</h3>
             <ul className="space-y-3">
               {footerLinks.services.map((link, index) => (
                 <li key={index}>
-                  <a
-                    href={link.href}
-                    className="text-accent-foreground/80 hover:text-primary transition-colors duration-300 inline-block"
+                  <Link
+                    to={link.href}
+                    className="text-accent-foreground/80 hover:text-primary transition-colors duration-300 inline-block text-sm md:text-base"
                   >
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -122,12 +131,12 @@ const Footer = () => {
             <ul className="space-y-3">
               {footerLinks.legal.map((link, index) => (
                 <li key={index}>
-                  <a
-                    href={link.href}
-                    className="text-accent-foreground/80 hover:text-primary transition-colors duration-300 inline-block"
+                  <Link
+                    to={link.href}
+                    className="text-accent-foreground/80 hover:text-primary transition-colors duration-300 inline-block text-sm md:text-base"
                   >
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
