@@ -90,7 +90,7 @@ const Services = () => {
                   <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                   
                   <div className="relative z-10">
-                    <div className="mb-6 w-16 h-16 mx-auto">
+                    <div className="mb-6 w-20 h-20 mx-auto bg-white rounded-2xl shadow-lg p-4 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                       <img src={service.icon} alt={service.title} className="w-full h-full object-contain" />
                     </div>
                     <h3 className="text-xl lg:text-2xl font-bold mb-4 text-foreground group-hover:text-primary transition-colors duration-300 text-center">
