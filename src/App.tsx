@@ -5,16 +5,16 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
-import WebDevelopment from "./pages/services/WebDevelopment";
-import AdvertisingCampaigns from "./pages/services/AdvertisingCampaigns";
-import SEO from "./pages/services/SEO";
-import VisualIdentity from "./pages/services/VisualIdentity";
-import EcommerceStores from "./pages/services/EcommerceStores";
-import MotionGraphics from "./pages/services/MotionGraphics";
-import Voiceover from "./pages/services/Voiceover";
-import SocialMediaManagement from "./pages/services/SocialMediaManagement";
-import InfluencerMarketing from "./pages/services/InfluencerMarketing";
-import Consulting from "./pages/services/Consulting";
+import Privacy from "./pages/Privacy";
+import Terms from "./pages/Terms";
+import BrandDesign from "./pages/services/BrandDesign";
+import SocialMediaService from "./pages/services/SocialMediaService";
+import EcommerceService from "./pages/services/EcommerceService";
+import AdvertisingService from "./pages/services/AdvertisingService";
+import AnalyticsService from "./pages/services/AnalyticsService";
+import MotionGraphicsService from "./pages/services/MotionGraphicsService";
+import InfluencerService from "./pages/services/InfluencerService";
+import EventsService from "./pages/services/EventsService";
 
 const queryClient = new QueryClient();
 
@@ -26,17 +26,16 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
-          <Route path="/services/web-development" element={<WebDevelopment />} />
-          <Route path="/services/advertising-campaigns" element={<AdvertisingCampaigns />} />
-          <Route path="/services/seo" element={<SEO />} />
-          <Route path="/services/visual-identity" element={<VisualIdentity />} />
-          <Route path="/services/ecommerce-stores" element={<EcommerceStores />} />
-          <Route path="/services/motion-graphics" element={<MotionGraphics />} />
-          <Route path="/services/voiceover" element={<Voiceover />} />
-          <Route path="/services/social-media" element={<SocialMediaManagement />} />
-          <Route path="/services/influencer-marketing" element={<InfluencerMarketing />} />
-          <Route path="/services/consulting" element={<Consulting />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+          <Route path="/privacy" element={<Privacy />} />
+          <Route path="/terms" element={<Terms />} />
+          <Route path="/services/brand-design" element={<BrandDesign />} />
+          <Route path="/services/social-media" element={<SocialMediaService />} />
+          <Route path="/services/ecommerce" element={<EcommerceService />} />
+          <Route path="/services/advertising" element={<AdvertisingService />} />
+          <Route path="/services/analytics" element={<AnalyticsService />} />
+          <Route path="/services/motion-graphics" element={<MotionGraphicsService />} />
+          <Route path="/services/influencer-marketing" element={<InfluencerService />} />
+          <Route path="/services/events" element={<EventsService />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

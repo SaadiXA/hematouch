@@ -1,57 +1,78 @@
-import { Megaphone, Palette, Video, Code, TrendingUp, Users } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Link } from "react-router-dom";
+import brandIcon from "@/assets/services/brand-design-icon.png";
+import socialIcon from "@/assets/services/social-media-icon.png";
+import ecommerceIcon from "@/assets/services/ecommerce-icon.png";
+import advertisingIcon from "@/assets/services/advertising-icon.png";
+import analyticsIcon from "@/assets/services/analytics-icon.png";
+import motionIcon from "@/assets/services/motion-graphics-icon.png";
+import influencerIcon from "@/assets/services/influencer-icon.png";
+import eventsIcon from "@/assets/services/events-icon.png";
 
 const Services = () => {
   const services = [
     {
-      icon: <Megaphone className="w-8 h-8" />,
-      title: "الحملات الإعلانية",
-      description: "استراتيجيات تسويقية مبتكرة تضمن وصولك لجمهورك المستهدف وزيادة مبيعاتك بشكل ملحوظ.",
-      link: "/services/advertising-campaigns"
+      icon: brandIcon,
+      title: "تصميم العلامة التجارية",
+      description: "نعمل على تصميم هوية بصرية فريدة وجذابة لتعزيز وجودك بالسوق",
+      link: "/services/brand-design"
     },
     {
-      icon: <Palette className="w-8 h-8" />,
-      title: "الهوية البصرية",
-      description: "تصاميم عصرية وجذابة تعكس هويتك التجارية وتترك انطباعاً لا يُنسى لدى عملائك.",
-      link: "/services/visual-identity"
-    },
-    {
-      icon: <Video className="w-8 h-8" />,
-      title: "الموشن جرافيك",
-      description: "فيديوهات احترافية ومونتاج إبداعي يروي قصتك بطريقة تجذب الانتباه وتحقق التفاعل.",
-      link: "/services/motion-graphics"
-    },
-    {
-      icon: <Code className="w-8 h-8" />,
-      title: "تطوير المواقع",
-      description: "مواقع إلكترونية متطورة وسريعة، مصممة خصيصاً لتحقيق أهدافك التجارية.",
-      link: "/services/web-development"
-    },
-    {
-      icon: <TrendingUp className="w-8 h-8" />,
-      title: "إدارة السوشيال ميديا",
-      description: "إدارة احترافية لحساباتك على منصات التواصل الاجتماعي مع محتوى جذاب ومتابعة مستمرة.",
+      icon: socialIcon,
+      title: "إدارة وسائل التواصل الاجتماعي",
+      description: "ندير منصاتك لنحول المتابعين إلى مجتمع شغوف والمحتوى إلى حوار والحوار إلى ولاء ومبيعات",
       link: "/services/social-media"
     },
     {
-      icon: <Users className="w-8 h-8" />,
-      title: "الاستشارات التسويقية",
-      description: "استشارات متخصصة لتطوير استراتيجياتك التسويقية وتحقيق أهدافك بأفضل الطرق.",
-      link: "/services/consulting"
+      icon: ecommerceIcon,
+      title: "إنشاء المتاجر الإلكترونية",
+      description: "نصمم مواقع وتطبيقات ليست جميلة فحسب بل هي آلات تحويل ذكية ترفع مبيعاتك",
+      link: "/services/ecommerce"
+    },
+    {
+      icon: advertisingIcon,
+      title: "إدارة الحملات الإعلانية",
+      description: "استراتيجيات إعلانية تضع علامتك في قلب السوق وتجذب لك العملاء الأكثر استعداداً للشراء",
+      link: "/services/advertising"
+    },
+    {
+      icon: analyticsIcon,
+      title: "التحليلات والتقارير",
+      description: "متابعة نتائج الحملات الإعلانية ودراسة النتائج ومقارنة العائد على الاستثمار ونضع الخطط بناءً على نتائج التحليل لتحقيق أفضل أساس مستدام",
+      link: "/services/analytics"
+    },
+    {
+      icon: motionIcon,
+      title: "إنتاج فيديو الموشن جرافيك",
+      description: "نترجم أفكارك المعقدة إلى فيديوهات آسرة تبسط رسالتك وتترك انطباعاً لا يمحى",
+      link: "/services/motion-graphics"
+    },
+    {
+      icon: influencerIcon,
+      title: "حملات التسويق عبر المؤثرين",
+      description: "نصل بعلامتك التجارية إلى جمهور أوسع وأكثر تفاعلاً من خلال حملات مدروسة مع المؤثرين",
+      link: "/services/influencer-marketing"
+    },
+    {
+      icon: eventsIcon,
+      title: "إدارة الفعاليات والسمعة",
+      description: "فعالية استثنائية تعبر عن هويتك وتدهش جمهورك",
+      link: "/services/events"
     }
   ];
 
+  const whatsappNumber = "966533982399";
+  const whatsappMessage = "مرحباً، أريد الاستفسار عن خدماتكم";
+  const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
+
   return (
     <section id="services" className="py-24 md:py-32 lg:py-40 bg-gradient-to-b from-background via-secondary/30 to-background relative overflow-hidden">
-      {/* Decorative Background Elements */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute top-20 right-20 w-72 h-72 bg-primary rounded-full blur-3xl"></div>
         <div className="absolute bottom-20 left-20 w-96 h-96 bg-primary-hover rounded-full blur-3xl"></div>
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
-        {/* Section Header */}
         <div className="text-center mb-20 animate-fade-up">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 text-foreground">
             خدماتنا <span className="gradient-text">المتميزة</span>
@@ -61,23 +82,21 @@ const Services = () => {
           </p>
         </div>
 
-        {/* Services Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10">
           {services.map((service, index) => (
             <Link key={index} to={service.link}>
               <Card className="group border-2 border-border/50 hover:border-primary/50 transition-all duration-500 hover-lift hover:shadow-[var(--shadow-premium)] bg-card/80 backdrop-blur-sm overflow-hidden h-full animate-scale-in" style={{ animationDelay: `${index * 0.1}s` }}>
                 <CardContent className="p-8 lg:p-10 relative">
-                  {/* Hover Gradient Effect */}
                   <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                   
                   <div className="relative z-10">
-                    <div className="mb-6 inline-flex p-5 rounded-2xl bg-primary/10 text-primary group-hover:bg-gradient-to-br group-hover:from-primary group-hover:to-primary-hover group-hover:text-primary-foreground transition-all duration-500 group-hover:scale-110 group-hover:rotate-3">
-                      {service.icon}
+                    <div className="mb-6 w-16 h-16 mx-auto">
+                      <img src={service.icon} alt={service.title} className="w-full h-full object-contain" />
                     </div>
-                    <h3 className="text-2xl lg:text-3xl font-bold mb-4 text-foreground group-hover:text-primary transition-colors duration-300">
+                    <h3 className="text-xl lg:text-2xl font-bold mb-4 text-foreground group-hover:text-primary transition-colors duration-300 text-center">
                       {service.title}
                     </h3>
-                    <p className="text-muted-foreground leading-relaxed text-base lg:text-lg">
+                    <p className="text-muted-foreground leading-relaxed text-base text-center">
                       {service.description}
                     </p>
                   </div>
@@ -87,23 +106,14 @@ const Services = () => {
           ))}
         </div>
 
-        {/* CTA Section */}
         <div className="mt-16 text-center">
           <p className="text-lg text-muted-foreground mb-6">
             هل تبحث عن خدمة محددة؟
           </p>
           <a
-            href="#contact"
-            onClick={(e) => {
-              e.preventDefault();
-              const element = document.querySelector("#contact");
-              if (element) {
-                const offset = 80;
-                const elementPosition = element.getBoundingClientRect().top;
-                const offsetPosition = elementPosition + window.pageYOffset - offset;
-                window.scrollTo({ top: offsetPosition, behavior: "smooth" });
-              }
-            }}
+            href={whatsappLink}
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center gap-2 text-primary font-bold text-lg hover:gap-4 transition-all duration-300 cursor-pointer"
           >
             تواصل معنا للمزيد
