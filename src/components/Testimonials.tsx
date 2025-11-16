@@ -74,7 +74,7 @@ const Testimonials = () => {
         </div>
 
         {/* Stats Section */}
-        <div className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
+        <div className="mt-20 grid grid-cols-2 md:grid-cols-3 gap-8 max-w-3xl mx-auto">
           <div className="text-center">
             <div className="text-4xl md:text-5xl font-bold text-primary mb-2">98%</div>
             <div className="text-sm text-muted-foreground font-medium">رضا العملاء</div>
@@ -86,10 +86,6 @@ const Testimonials = () => {
           <div className="text-center">
             <div className="text-4xl md:text-5xl font-bold text-primary mb-2">+200</div>
             <div className="text-sm text-muted-foreground font-medium">عميل راضٍ</div>
-          </div>
-          <div className="text-center">
-            <div className="text-4xl md:text-5xl font-bold text-primary mb-2">24/7</div>
-            <div className="text-sm text-muted-foreground font-medium">دعم مستمر</div>
           </div>
         </div>
       </div>
