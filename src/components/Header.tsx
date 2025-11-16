@@ -29,6 +29,12 @@ const Header = () => {
   ];
 
   const scrollToSection = (href: string) => {
+    // If we're not on the homepage, navigate to homepage first
+    if (window.location.pathname !== '/') {
+      window.location.href = '/' + href;
+      return;
+    }
+    
     const element = document.querySelector(href);
     if (element) {
       const offset = 80;

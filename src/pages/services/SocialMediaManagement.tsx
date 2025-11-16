@@ -1,27 +1,41 @@
+import { useEffect } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
+import socialIcon from "@/assets/services/social-media-icon.png";
+import socialBanner from "@/assets/services/social-media-banner.jpg";
 
 const SocialMediaManagement = () => {
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, []);
+
   return (
     <div className="min-h-screen bg-background">
       <Header />
       
       {/* Hero Section */}
-      <section className="relative h-[400px] flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-black/70 to-black/50 z-10" />
-        <img 
-          src="https://i.ibb.co/kVbXJz9v/Gemini-Generated-Image-o9wieto9wieto9wi.jpg" 
-          alt="إدارة حسابات التواصل الاجتماعي" 
-          className="absolute inset-0 w-full h-full object-cover"
-        />
-        <div className="container relative z-20 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            إدارة حسابات التواصل الاجتماعي
-          </h1>
+      <section className="pt-32 pb-16">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-8">
+            <Badge variant="secondary" className="mb-6 text-lg px-6 py-2">
+              إدارة وسائل التواصل الاجتماعي
+            </Badge>
+            <div className="inline-flex items-center justify-center w-32 h-32 rounded-2xl bg-white shadow-lg mb-8">
+              <img src={socialIcon} alt="إدارة حسابات التواصل الاجتماعي" className="w-20 h-20 object-contain" />
+            </div>
+          </div>
+          <div className="max-w-5xl mx-auto rounded-2xl overflow-hidden shadow-2xl">
+            <img 
+              src={socialBanner}
+              alt="إدارة حسابات التواصل الاجتماعي" 
+              className="w-full h-auto object-cover"
+            />
+          </div>
         </div>
       </section>
 
