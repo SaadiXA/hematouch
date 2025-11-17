@@ -14,7 +14,7 @@
         var l = window.location;
         // Keep 1 path segment for project pages (user.github.io/repo),
         // change to 0 if deploying to user/organization pages (user.github.io)
-        var pathSegmentsToKeep = 1;
+        var pathSegmentsToKeep = 0;
         var pathArray = l.pathname.split('/');
         var newPathname = pathArray.slice(0, 1 + pathSegmentsToKeep).join('/') + '/';
         var p = pathArray.slice(1 + pathSegmentsToKeep).join('/');
