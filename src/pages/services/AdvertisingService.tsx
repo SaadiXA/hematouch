@@ -20,18 +20,19 @@ const AdvertisingService = () => {
     <div className="min-h-screen bg-background">
       <Header />
       
-      {/* Hero Section */}
-      <section className="pt-32 pb-16">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-8">
-            <Badge variant="secondary" className="mb-6 text-lg px-6 py-2">
+      {/* Hero Section with Gradient */}
+      <section className="relative pt-32 pb-20 overflow-hidden bg-gradient-to-br from-primary/5 via-background to-secondary/5">
+        <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="text-center mb-12">
+            <Badge variant="secondary" className="mb-8 text-xl px-8 py-3 animate-fade-in shadow-lg">
               إدارة الحملات الإعلانية
             </Badge>
-            <div className="inline-flex items-center justify-center w-32 h-32 rounded-2xl bg-white shadow-lg mb-8">
-              <img src={advertisingIcon} alt="إدارة الحملات الإعلانية" className="w-20 h-20 object-contain" />
+            <div className="inline-flex items-center justify-center w-40 h-40 rounded-3xl bg-white shadow-2xl mb-12 hover:scale-105 transition-transform duration-300">
+              <img src={advertisingIcon} alt="إدارة الحملات الإعلانية" className="w-28 h-28 object-contain" />
             </div>
           </div>
-          <div className="max-w-5xl mx-auto rounded-2xl overflow-hidden shadow-2xl">
+          <div className="max-w-6xl mx-auto rounded-3xl overflow-hidden shadow-2xl border border-border/50">
             <img 
               src={advertisingBanner}
               alt="إدارة الحملات الإعلانية" 
@@ -41,61 +42,74 @@ const AdvertisingService = () => {
         </div>
       </section>
 
-      {/* Content Section */}
-      <section className="py-16 bg-background">
+      {/* Content Section with Cards */}
+      <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <div className="prose prose-lg max-w-none">
-              <p className="text-xl text-foreground leading-relaxed mb-8">
+          <div className="max-w-5xl mx-auto">
+            {/* Introduction Card */}
+            <div className="bg-card border border-border rounded-2xl p-8 md:p-12 mb-8 shadow-lg">
+              <p className="text-xl md:text-2xl text-foreground leading-relaxed">
                 هل تبحث عن حملة إعلانية احترافية تحقق أهدافك التسويقية؟ في هيما تاتش، نقدم لك حلولًا متكاملة لإدارة الحملات الإعلانية، مما يساعدك على زيادة الوعي بعلامتك التجارية، جذب العملاء المحتملين، وتحقيق أعلى عائد على الاستثمار. نعتمد على استراتيجيات تسويقية مدروسة لكل نشاط تجاري، مع تصميم إعلانات جذابة، استهداف دقيق للجمهور، إدارة الميزانية بكفاءة، وتحليل الأداء المستمر لضمان تحقيق أفضل النتائج.
               </p>
+            </div>
 
-              <h2 className="text-3xl font-bold text-foreground mt-12 mb-6">ماذا نقدم؟</h2>
-              <p className="text-lg text-foreground mb-6">
+            {/* Services Card */}
+            <div className="bg-gradient-to-br from-primary/5 to-secondary/5 border border-border rounded-2xl p-8 md:p-12 mb-8">
+              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-8 text-center">ماذا نقدم؟</h2>
+              <p className="text-lg md:text-xl text-foreground mb-8 text-center">
                 في هيما تاتش، نقدم خدمات متكاملة لإدارة الحملات الإعلانية، مما يساعدك على تحقيق وصول أوسع، استهداف دقيق، وعائد استثماري أعلى. إليك ما نقدمه لك:
               </p>
-              <ul className="space-y-4 text-foreground">
-                <li className="text-lg">
-                  <strong>إعداد الاستراتيجية الإعلانية:</strong> نقوم بتحليل نشاطك التجاري والجمهور المستهدف لإنشاء خطة إعلانية مخصصة تضمن تحقيق أعلى العوائد.
-                </li>
-                <li className="text-lg">
-                  <strong>تصميم الإعلانات (صور + فيديو + كتابة):</strong> ننتج محتوى إبداعيًا جذابًا، يشمل التصميمات الاحترافية والكتابة التسويقية المؤثرة التي تعكس هوية علامتك التجارية.
-                </li>
-                <li className="text-lg">
-                  <strong>إدارة الميزانية وتحسين الأداء:</strong> نُدير ميزانيتك الإعلانية بكفاءة عالية لضمان أفضل عائد على الاستثمار، مع متابعة مستمرة لتحقيق أقصى استفادة.
-                </li>
-                <li className="text-lg">
-                  <strong>تحليل الأداء والتقارير الدورية:</strong> نوفر لك تقارير تفصيلية عن أداء حملاتك الإعلانية، بما في ذلك نسبة التفاعل، معدلات التحويل، ونمو المبيعات.
-                </li>
-              </ul>
-
-              <h2 className="text-3xl font-bold text-foreground mt-12 mb-6">أسئلة شائعة</h2>
-              <div className="space-y-6">
-                <div>
-                  <h3 className="text-xl font-bold text-foreground mb-2">ما الذي تشمله خدمة إدارة الحملات الإعلانية؟</h3>
-                  <p className="text-lg text-muted-foreground">تشمل الخدمة إعداد الاستراتيجية، استهداف الجمهور بدقة، تصميم الإعلانات، إدارة الميزانية، تشغيل الحملات على مختلف المنصات، ومتابعة الأداء لتحسين النتائج.</p>
+              <div className="grid gap-6">
+                <div className="bg-background/80 backdrop-blur rounded-xl p-6 border border-border/50 hover:shadow-lg transition-all duration-300">
+                  <p className="text-lg md:text-xl text-foreground">
+                    <strong className="text-primary">إعداد الاستراتيجية الإعلانية:</strong> نقوم بتحليل نشاطك التجاري والجمهور المستهدف لإنشاء خطة إعلانية مخصصة تضمن تحقيق أعلى العوائد.
+                  </p>
                 </div>
-                <div>
-                  <h3 className="text-xl font-bold text-foreground mb-2">هل يمكنكم تشغيل الحملات على أكثر من منصة؟</h3>
-                  <p className="text-lg text-muted-foreground">نعم، ندير حملاتك على منصات متعددة مثل فيسبوك، إنستجرام، جوجل، يوتيوب، تيك توك، وسناب شات.</p>
+                <div className="bg-background/80 backdrop-blur rounded-xl p-6 border border-border/50 hover:shadow-lg transition-all duration-300">
+                  <p className="text-lg md:text-xl text-foreground">
+                    <strong className="text-primary">تصميم الإعلانات (صور + فيديو + كتابة):</strong> ننتج محتوى إبداعيًا جذابًا، يشمل التصميمات الاحترافية والكتابة التسويقية المؤثرة التي تعكس هوية علامتك التجارية.
+                  </p>
                 </div>
-                <div>
-                  <h3 className="text-xl font-bold text-foreground mb-2">ما الميزانية المناسبة لبدء حملة ناجحة؟</h3>
-                  <p className="text-lg text-muted-foreground">نساعدك على تحديد ميزانية فعالة تضمن أفضل عائد على الاستثمار بناءً على أهدافك والمنصة المستخدمة.</p>
+                <div className="bg-background/80 backdrop-blur rounded-xl p-6 border border-border/50 hover:shadow-lg transition-all duration-300">
+                  <p className="text-lg md:text-xl text-foreground">
+                    <strong className="text-primary">استهداف دقيق للجمهور:</strong> نحدد جمهورك المستهدف بدقة بناءً على الموقع، الاهتمامات، السلوك، والعمر لضمان وصول إعلاناتك للشريحة الأنسب.
+                  </p>
                 </div>
-              </div>
-
-              <div className="mt-12 text-center">
-                <a
-                  href={whatsappLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-block bg-primary hover:bg-primary-hover text-primary-foreground font-bold py-4 px-8 rounded-lg text-lg transition-all duration-300 hover:scale-105"
-                >
-                  ابدأ حملتك الآن
-                </a>
+                <div className="bg-background/80 backdrop-blur rounded-xl p-6 border border-border/50 hover:shadow-lg transition-all duration-300">
+                  <p className="text-lg md:text-xl text-foreground">
+                    <strong className="text-primary">إدارة الميزانية بكفاءة:</strong> نُدير ميزانيتك الإعلانية بذكاء لتحقيق أقصى استفادة ممكنة من كل ريال تنفقه على الحملة.
+                  </p>
+                </div>
+                <div className="bg-background/80 backdrop-blur rounded-xl p-6 border border-border/50 hover:shadow-lg transition-all duration-300">
+                  <p className="text-lg md:text-xl text-foreground">
+                    <strong className="text-primary">تحليل الأداء وتحسينه:</strong> نتابع أداء حملاتك بشكل دوري، ونُحسّن الإعلانات بناءً على البيانات لضمان تحقيق أفضل النتائج.
+                  </p>
+                </div>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section with Gradient */}
+      <section className="py-20 bg-gradient-to-br from-primary via-primary/90 to-primary/80 relative overflow-hidden">
+        <div className="absolute inset-0 bg-grid-pattern opacity-10"></div>
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="max-w-3xl mx-auto text-center">
+            <h3 className="text-3xl md:text-5xl font-bold text-primary-foreground mb-6">
+              ابدأ حملتك الإعلانية الآن
+            </h3>
+            <p className="text-lg md:text-xl text-primary-foreground/90 mb-10">
+              دعنا نساعدك في تحقيق أهدافك التسويقية وزيادة عائدك على الاستثمار
+            </p>
+            <a
+              href={whatsappLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block bg-background text-primary hover:bg-background/90 font-bold py-5 px-12 rounded-full text-xl transition-all duration-300 hover:scale-105 shadow-2xl"
+            >
+              تواصل معنا الآن
+            </a>
           </div>
         </div>
       </section>

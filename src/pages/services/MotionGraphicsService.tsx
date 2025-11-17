@@ -20,18 +20,19 @@ const MotionGraphicsService = () => {
     <div className="min-h-screen bg-background">
       <Header />
       
-      {/* Hero Section */}
-      <section className="pt-32 pb-16">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-8">
-            <Badge variant="secondary" className="mb-6 text-lg px-6 py-2">
+      {/* Hero Section with Gradient */}
+      <section className="relative pt-32 pb-20 overflow-hidden bg-gradient-to-br from-primary/5 via-background to-secondary/5">
+        <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="text-center mb-12">
+            <Badge variant="secondary" className="mb-8 text-xl px-8 py-3 animate-fade-in shadow-lg">
               إنتاج فيديو الموشن جرافيك
             </Badge>
-            <div className="inline-flex items-center justify-center w-32 h-32 rounded-2xl bg-white shadow-lg mb-8">
-              <img src={motionIcon} alt="إنتاج فيديو الموشن جرافيك" className="w-20 h-20 object-contain" />
+            <div className="inline-flex items-center justify-center w-40 h-40 rounded-3xl bg-white shadow-2xl mb-12 hover:scale-105 transition-transform duration-300">
+              <img src={motionIcon} alt="إنتاج فيديو الموشن جرافيك" className="w-28 h-28 object-contain" />
             </div>
           </div>
-          <div className="max-w-5xl mx-auto rounded-2xl overflow-hidden shadow-2xl">
+          <div className="max-w-6xl mx-auto rounded-3xl overflow-hidden shadow-2xl border border-border/50">
             <img 
               src={motionBanner}
               alt="إنتاج فيديو الموشن جرافيك" 
@@ -41,58 +42,66 @@ const MotionGraphicsService = () => {
         </div>
       </section>
 
-      {/* Content Section */}
-      <section className="py-16 bg-background">
+      {/* Content Section with Cards */}
+      <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <div className="prose prose-lg max-w-none">
-              <p className="text-xl text-foreground leading-relaxed mb-8">
+          <div className="max-w-5xl mx-auto">
+            {/* Introduction Card */}
+            <div className="bg-card border border-border rounded-2xl p-8 md:p-12 mb-8 shadow-lg">
+              <p className="text-xl md:text-2xl text-foreground leading-relaxed">
                 هل تبحث عن موشن جرافيك احترافي يعزز علامتك التجارية؟ في هيما تاتش، نقدم لك حلولًا إبداعية لإنتاج فيديوهات موشن جرافيك تجذب الانتباه، توضح أفكارك، وتساعد في إيصال رسالتك بفعالية. نعتمد على استراتيجيات بصرية مخصصة، مع تصاميم احترافية، سيناريوهات إبداعية، ورسوم متحركة جذابة.
               </p>
+            </div>
 
-              <h2 className="text-3xl font-bold text-foreground mt-12 mb-6">ماذا نقدم؟</h2>
-              <ul className="space-y-4 text-foreground">
-                <li className="text-lg">
-                  <strong>إعداد الاستراتيجية الإبداعية:</strong> نقوم بتحليل نشاطك التجاري والجمهور المستهدف لإنشاء سيناريوهات موشن جرافيك مبتكرة.
-                </li>
-                <li className="text-lg">
-                  <strong>تصميم المشاهد والرسومات:</strong> نُنتج تصاميم احترافية وعناصر بصرية جذابة تعكس هوية علامتك التجارية وتُبهر جمهورك.
-                </li>
-                <li className="text-lg">
-                  <strong>إعلانات الفيديو وتحليل الأداء:</strong> نُنشئ فيديوهات إعلانية موجهة تزيد من وصول علامتك التجارية، مع متابعة الأداء وتحسينه.
-                </li>
-                <li className="text-lg">
-                  <strong>تقديم الفيديوهات بجودة عالية:</strong> نوفر لك فيديوهات بجودة احترافية متوافقة مع جميع المنصات لضمان أفضل تجربة مشاهدة.
-                </li>
-              </ul>
-
-              <h2 className="text-3xl font-bold text-foreground mt-12 mb-6">أسئلة شائعة</h2>
-              <div className="space-y-6">
-                <div>
-                  <h3 className="text-xl font-bold text-foreground mb-2">ما الذي تشمله خدمة إنتاج الموشن جرافيك؟</h3>
-                  <p className="text-lg text-muted-foreground">تشمل كتابة السيناريو، تصميم المشاهد، تحريك العناصر، إضافة المؤثرات البصرية والصوتية، والتعليق الصوتي.</p>
+            {/* Services Card */}
+            <div className="bg-gradient-to-br from-primary/5 to-secondary/5 border border-border rounded-2xl p-8 md:p-12 mb-8">
+              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-8 text-center">ماذا نقدم؟</h2>
+              <div className="grid gap-6">
+                <div className="bg-background/80 backdrop-blur rounded-xl p-6 border border-border/50 hover:shadow-lg transition-all duration-300">
+                  <p className="text-lg md:text-xl text-foreground">
+                    <strong className="text-primary">إعداد الاستراتيجية الإبداعية:</strong> نقوم بتحليل نشاطك التجاري والجمهور المستهدف لإنشاء سيناريوهات موشن جرافيك مبتكرة.
+                  </p>
                 </div>
-                <div>
-                  <h3 className="text-xl font-bold text-foreground mb-2">هل يمكنكم إنشاء فيديوهات لمجالات مختلفة؟</h3>
-                  <p className="text-lg text-muted-foreground">نعم، نُنتج فيديوهات لمختلف المجالات، بما في ذلك التسويق، التعليم، العقارات، والخدمات.</p>
+                <div className="bg-background/80 backdrop-blur rounded-xl p-6 border border-border/50 hover:shadow-lg transition-all duration-300">
+                  <p className="text-lg md:text-xl text-foreground">
+                    <strong className="text-primary">تصميم المشاهد والرسومات:</strong> نُنتج تصاميم احترافية وعناصر بصرية جذابة تعكس هوية علامتك التجارية وتُبهر جمهورك.
+                  </p>
                 </div>
-                <div>
-                  <h3 className="text-xl font-bold text-foreground mb-2">هل توفرون تعليقًا صوتيًا احترافيًا؟</h3>
-                  <p className="text-lg text-muted-foreground">نعم، نوفر تعليقًا صوتيًا احترافيًا بصوت رجالي أو نسائي، وبلهجات متنوعة.</p>
+                <div className="bg-background/80 backdrop-blur rounded-xl p-6 border border-border/50 hover:shadow-lg transition-all duration-300">
+                  <p className="text-lg md:text-xl text-foreground">
+                    <strong className="text-primary">إعلانات الفيديو وتحليل الأداء:</strong> نُنشئ فيديوهات إعلانية موجهة تزيد من وصول علامتك التجارية، مع متابعة الأداء وتحسينه.
+                  </p>
                 </div>
-              </div>
-
-              <div className="mt-12 text-center">
-                <a
-                  href={whatsappLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-block bg-primary hover:bg-primary-hover text-primary-foreground font-bold py-4 px-8 rounded-lg text-lg transition-all duration-300 hover:scale-105"
-                >
-                  ابدأ مشروعك الآن
-                </a>
+                <div className="bg-background/80 backdrop-blur rounded-xl p-6 border border-border/50 hover:shadow-lg transition-all duration-300">
+                  <p className="text-lg md:text-xl text-foreground">
+                    <strong className="text-primary">تقديم الفيديوهات بجودة عالية:</strong> نوفر لك فيديوهات بجودة احترافية متوافقة مع جميع المنصات لضمان أفضل تجربة مشاهدة.
+                  </p>
+                </div>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section with Gradient */}
+      <section className="py-20 bg-gradient-to-br from-primary via-primary/90 to-primary/80 relative overflow-hidden">
+        <div className="absolute inset-0 bg-grid-pattern opacity-10"></div>
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="max-w-3xl mx-auto text-center">
+            <h3 className="text-3xl md:text-5xl font-bold text-primary-foreground mb-6">
+              احصل على موشن جرافيك احترافي
+            </h3>
+            <p className="text-lg md:text-xl text-primary-foreground/90 mb-10">
+              دعنا نساعدك في إنتاج فيديوهات مميزة تعكس هوية علامتك التجارية
+            </p>
+            <a
+              href={whatsappLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block bg-background text-primary hover:bg-background/90 font-bold py-5 px-12 rounded-full text-xl transition-all duration-300 hover:scale-105 shadow-2xl"
+            >
+              تواصل معنا الآن
+            </a>
           </div>
         </div>
       </section>
